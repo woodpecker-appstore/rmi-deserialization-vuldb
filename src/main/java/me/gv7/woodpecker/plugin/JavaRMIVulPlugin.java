@@ -38,6 +38,12 @@ public class JavaRMIVulPlugin implements IPlugin {
         callbacks.setPluginName("java rmi deserialization");
         callbacks.setPluginVersion("0.1.0");
         callbacks.setPluginAutor("c0ny1");
+        callbacks.setVulCVSS(9.5);
+        callbacks.setVulName("Java RMI反序列化漏洞");
+        callbacks.setVulDescription("该漏洞可以攻击运行RMI服务的端口，进行反序列化执行代码");
+        callbacks.setVulCategory("RCE");
+        callbacks.setVulProduct("java");
+        callbacks.setVulSeverity("high");
         callbacks.registerPoc(new RmiDeserialPoc());
         callbacks.registerExploitCommand(new RmiDeserialExecExploit());
     }
