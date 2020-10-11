@@ -3,6 +3,9 @@ package me.gv7.woodpecker.plugin;
 import me.gv7.woodpecker.plugin.exploit.RmiDeserialExecExploit;
 import me.gv7.woodpecker.plugin.poc.RmiDeserialPoc;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * port == 1099 && protocol=="java-rmi" && country="US"
  * 测试用例：
@@ -45,6 +48,9 @@ public class JavaRMIVulPlugin implements IPlugin {
         callbacks.setVulProduct("java");
         callbacks.setVulSeverity("high");
         callbacks.registerPoc(new RmiDeserialPoc());
-        callbacks.registerExploitCommand(new RmiDeserialExecExploit());
+
+        List<IExploit> exploitList = new ArrayList<IExploit>();
+        exploitList.add(new RmiDeserialExecExploit());
+        callbacks.registerExploit(exploitList);
     }
 }
