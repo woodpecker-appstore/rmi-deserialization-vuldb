@@ -16,8 +16,8 @@ import java.util.List;
  * 211.149.250.87:1099 无漏洞 有JEP290防护
  * 123.59.170.203:1099 无漏洞 java.rmi.AccessException: Registry.bind disallowed; origin /123.59.170.203 is non-local host
  */
-public class JavaRMIVulPlugin implements IPlugin {
-    public static IExtenderCallbacks callbacks;
+public class JavaRMIVulPlugin implements IVulPlugin {
+    public static IVulPluginCallbacks callbacks;
     public static IPluginHelper pluginHelper;
 
     public static String[] gadgets = new String[]{"Jdk7u21",
@@ -35,12 +35,12 @@ public class JavaRMIVulPlugin implements IPlugin {
     };
 
     @Override
-    public void PluginMain(IExtenderCallbacks callbacks) {
+    public void VulPluginMain(IVulPluginCallbacks callbacks) {
         this.callbacks = callbacks;
         this.pluginHelper = callbacks.getPluginHelper();
-        callbacks.setPluginName("java rmi deserialization");
-        callbacks.setPluginVersion("0.1.0");
-        callbacks.setPluginAutor("c0ny1");
+        callbacks.setVulPluginName("java rmi deserialization");
+        callbacks.setVulPluginVersion("0.1.0");
+        callbacks.setVulPluginAuthor("c0ny1");
         callbacks.setVulCVSS(9.5);
         callbacks.setVulName("Java RMI反序列化漏洞");
         callbacks.setVulDescription("该漏洞可以攻击运行RMI服务的端口，进行反序列化执行代码");

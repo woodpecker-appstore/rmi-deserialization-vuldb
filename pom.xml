@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.qianxin.sglag</groupId>
-    <artifactId>java-rmi-exploig-gtplugin</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <artifactId>java-rmi-vuldb</artifactId>
+    <version>0.1.0</version>
     <packaging>jar</packaging>
 
-    <name>java-rmi-exploit-woodpecker</name>
+    <name>java-rmi-vuldb</name>
     <url>https://github.com/frohoff/ysoserial/</url>
 
     <properties>
@@ -283,11 +283,9 @@
         </dependency>
 
         <dependency>
-            <groupId>woodpecker-sdk</groupId>  <!--自定义-->
-            <artifactId>sdk</artifactId>    <!--自定义-->
-            <version>1.0</version> <!--自定义-->
-            <scope>system</scope> <!--system，类似provided，需要显式提供依赖的jar以后，Maven就不会在Repository中查找它-->
-            <systemPath>${basedir}/lib/woodpecker-sdk.jar</systemPath> <!--项目根目录下的lib文件夹下-->
+            <groupId>me.gv7.woodpecker</groupId>
+            <artifactId>woodpecker-sdk</artifactId>
+            <version>0.1.0.beta3</version>
         </dependency>
     </dependencies>
 

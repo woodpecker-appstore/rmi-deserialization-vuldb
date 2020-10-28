@@ -3,6 +3,6 @@ package me.gv7.woodpecker.plugin;
 public class WoodpeckerPluginManager implements IPluginManager {
     @Override
     public void registerPluginManagerCallbacks(IPluginManagerCallbacks pluginManagerCallbacks) {
-        pluginManagerCallbacks.registerPlugin(new JavaRMIVulPlugin());
+        pluginManagerCallbacks.registerVulPlugin(new JavaRMIVulPlugin());
     }
 }
