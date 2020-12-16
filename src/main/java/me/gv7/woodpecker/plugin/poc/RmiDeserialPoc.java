@@ -11,7 +11,7 @@ import static me.gv7.woodpecker.plugin.JavaRMIVulPlugin.gadgets;
 
 public class RmiDeserialPoc implements IPoc {
     @Override
-    public IScanResult doCheck(ITarget target, IResultOutput iResultOutput) {
+    public IScanResult doVerify(ITarget target, IResultOutput resultOutput) {
         String host = target.getHost();
         int port = target.getPort();
 

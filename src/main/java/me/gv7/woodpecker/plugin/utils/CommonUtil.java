@@ -21,6 +21,7 @@ public class CommonUtil {
     public static Object generator(String gadget,String command) throws Exception {
         // 解决: java.lang.RuntimeException: StubTransletPayload: frozen class (cannot edit) 错误
         try{
+            javassist.ClassPool.getDefault().getCtClass("ys.payloads.util.Gadgets$StubTransletPayload").defrost();
             javassist.ClassPool.getDefault().getCtClass("StubTransletPayload").defrost();
         }catch (javassist.NotFoundException e){
         }
@@ -28,8 +29,7 @@ public class CommonUtil {
 
         Class<? extends ObjectPayload> clsGadget = ObjectPayload.Utils.getPayloadClass(gadget);
         if(clsGadget == null){
-            System.out.println(gadget);
-            return null;
+            throw new Exception("Gadget payload is null");
         }
         ObjectPayload<?> payload = clsGadget.newInstance();
 
