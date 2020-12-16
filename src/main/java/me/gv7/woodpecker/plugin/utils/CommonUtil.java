@@ -4,9 +4,7 @@ import ys.payloads.ObjectPayload;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class CommonUtil {
@@ -22,10 +20,11 @@ public class CommonUtil {
         // 解决: java.lang.RuntimeException: StubTransletPayload: frozen class (cannot edit) 错误
         try{
             javassist.ClassPool.getDefault().getCtClass("ys.payloads.util.Gadgets$StubTransletPayload").defrost();
-            javassist.ClassPool.getDefault().getCtClass("StubTransletPayload").defrost();
         }catch (javassist.NotFoundException e){
+            try {
+                javassist.ClassPool.getDefault().getCtClass("StubTransletPayload").defrost();
+            }catch (javassist.NotFoundException ee){}
         }
-
 
         Class<? extends ObjectPayload> clsGadget = ObjectPayload.Utils.getPayloadClass(gadget);
         if(clsGadget == null){

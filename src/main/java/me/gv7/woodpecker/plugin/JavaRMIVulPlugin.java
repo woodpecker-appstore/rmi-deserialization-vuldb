@@ -39,7 +39,7 @@ public class JavaRMIVulPlugin implements IVulPlugin {
         this.callbacks = callbacks;
         this.pluginHelper = callbacks.getPluginHelper();
         callbacks.setVulPluginName("java rmi deserialization");
-        callbacks.setVulPluginVersion("0.1.0");
+        callbacks.setVulPluginVersion("0.1.1");
         callbacks.setVulPluginAuthor("c0ny1");
         callbacks.setVulCVSS(9.5);
         callbacks.setVulName("Java RMI反序列化漏洞");
