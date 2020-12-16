@@ -38,7 +38,7 @@ public class RmiDeserialPoc implements IPoc {
                 scanResult.setExists(true);
                 scanResult.setMsg(msg);
             }else{
-                resultOutput.failPrintln(String.format("%s:%d gadget:%s不可用",host,port,result,gadget));
+                resultOutput.failPrintln(String.format("%s:%d gadget:%s不可用",host,port,gadget));
             }
         }
         return scanResult;
