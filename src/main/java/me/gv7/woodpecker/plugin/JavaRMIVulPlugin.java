@@ -6,16 +6,7 @@ import me.gv7.woodpecker.plugin.poc.RmiDeserialPoc;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * port == 1099 && protocol=="java-rmi" && country="US"
- * 测试用例：
- * 120.76.221.115:1099 有漏洞 ClassNotFoundException
- * 138.204.201.34:1099 有漏洞 可回显(目前不行了)
- * 118.178.85.164:1099 有漏洞 ClassNotFoundException
- * 103.110.136.2:1099  有漏洞 ObjectInputStream.readObject
- * 211.149.250.87:1099 无漏洞 有JEP290防护
- * 123.59.170.203:1099 无漏洞 java.rmi.AccessException: Registry.bind disallowed; origin /123.59.170.203 is non-local host
- */
+
 public class JavaRMIVulPlugin implements IVulPlugin {
     public static IVulPluginCallbacks callbacks;
     public static IPluginHelper pluginHelper;
