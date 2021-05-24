@@ -40,7 +40,7 @@ public class JavaRMIVulPlugin implements IVulPlugin {
         this.pluginHelper = callbacks.getPluginHelper();
         callbacks.setVulPluginName("java rmi deserialization");
         callbacks.setVulPluginVersion("0.1.1");
-        callbacks.setVulPluginAuthor("c0ny1");
+        callbacks.setVulPluginAuthor("woodpecker-org");
         callbacks.setVulCVSS(9.5);
         callbacks.setVulName("Java RMI反序列化漏洞");
         callbacks.setVulDescription("该漏洞可以攻击运行RMI服务的端口，进行反序列化执行代码");

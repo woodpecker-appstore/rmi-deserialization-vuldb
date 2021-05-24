@@ -1,6 +1,6 @@
 package me.gv7.woodpecker.plugin.utils;
 
-import ys.payloads.ObjectPayload;
+import me.gv7.woodpecker.yso.payloads.ObjectPayload;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,13 +18,10 @@ public class CommonUtil {
 
     public static Object generator(String gadget,String command) throws Exception {
         // 解决: java.lang.RuntimeException: StubTransletPayload: frozen class (cannot edit) 错误
-        try{
-            javassist.ClassPool.getDefault().getCtClass("ys.payloads.util.Gadgets$StubTransletPayload").defrost();
-        }catch (javassist.NotFoundException e){
-            try {
-                javassist.ClassPool.getDefault().getCtClass("StubTransletPayload").defrost();
-            }catch (javassist.NotFoundException ee){}
-        }
+        try {
+            javassist.ClassPool.getDefault().getCtClass("StubTransletPayload").defrost();
+        }catch (javassist.NotFoundException ee){}
+
 
         Class<? extends ObjectPayload> clsGadget = ObjectPayload.Utils.getPayloadClass(gadget);
         if(clsGadget == null){
