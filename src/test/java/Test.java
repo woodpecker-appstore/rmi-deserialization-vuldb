@@ -1,6 +1,6 @@
 import me.gv7.woodpecker.plugin.utils.CommonUtil;
 import me.gv7.woodpecker.plugin.utils.RMIRegistryExploit;
-import sun.misc.BASE64Encoder;
+import me.gv7.woodpecker.tools.codec.BASE64Encoder;
 
 public class Test {
     public static void main(String[] args) throws Exception {

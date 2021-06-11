@@ -16,5 +16,12 @@
             <artifactId>woodpecker-sdk</artifactId>
             <version>0.1.0.beta4</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/me.gv7.woodpecker/woodpecker-tools -->
+        <dependency>
+            <groupId>me.gv7.woodpecker</groupId>
+            <artifactId>woodpecker-tools</artifactId>
+            <version>0.1.0.beta1</version>
+        </dependency>
     </dependencies>
 </project>
